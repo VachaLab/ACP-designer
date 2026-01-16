@@ -12,14 +12,14 @@ import joblib
 
 class CytotoxicityFilter(Filter):
 
-    def __init__(self, model_path:Path, embedder_device='cpu'):
+    def __init__(self, model_path:Path, device='cpu'):
 
         super().__init__()
 
         self.model = joblib.load(model_path)
 
         print('initializing the embedding model')
-        self.embedder = Embedder(embedder_device)
+        self.embedder = Embedder(device)
 
     def filter_sequences(self, df:pd.DataFrame):
 

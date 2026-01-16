@@ -21,7 +21,7 @@ class MutatorFaiss:
         self.indexer = faiss.IndexFlatIP(embedd_dim)
         self.indexer.add(self.vdb)
     
-    def retrive_mutants(self, og_sequence:np.ndarray, n:int=3) -> pd.DataFrame:
+    def retrive_mutants(self, og_sequence:np.ndarray, n:int=6) -> pd.DataFrame:
         """
         - find n-closest peptides from og_sequence
         RETURN: dataframe with mutants + corresponding filtering statistics

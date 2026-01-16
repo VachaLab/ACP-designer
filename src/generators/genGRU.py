@@ -1,13 +1,14 @@
 from src.generators.generator import Generator
 from src.utils.utils_ml import Dataset, collate_fn_no_label, normalize_embeddings
 from torch.utils.data import DataLoader
+from tqdm import tqdm
 
 import numpy as np
 import pandas as pd
 
 class GenGRU(Generator):
 
-    def __init__(self, model_path, batch_size=16):
+    def __init__(self, model_path, batch_size=8):
 
         super().__init__(model_path)
 
@@ -17,12 +18,15 @@ class GenGRU(Generator):
         
         """
         - generate novel APC-MP like sequences
-        - keep only unque sequences
+        - keep only unique sequences
         """
+
+        print('generating new ACPs')
         sequences_tensor = self.model.sample(self.batch_size * n_batches, self.vocabulary)
 
         sequences_strings = []
-        for seq in sequences_tensor:
+        for i in tqdm(range(len(sequences_tensor))):
+            seq = sequences_tensor[i]
             seq = self.vocabulary.tensor_to_seq(seq, debug=False)
             sequences_strings.append(str(seq))
         

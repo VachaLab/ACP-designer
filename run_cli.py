@@ -3,7 +3,6 @@ CLI - main running script (entry point)
 """
 
 import argparse
-from pathlib import Path
 
 from src.config import GENGRU_PATH, CTT_PATH, DIST_DATA_PATH, OUTPUT_PATH, FOLDER_SIGNATURE, DROP_COLS, DEVICE
 from src.generators.architectures.architectures import GenRNN

@@ -6,6 +6,7 @@ import src.utils.utils_visualization as visualizations
 
 from typing import List
 from pathlib import Path
+import numpy as np
 
 class ACPmaker():
 
@@ -13,7 +14,7 @@ class ACPmaker():
 
         print(device)
 
-        self.generator = GenGRU(gen_path)
+        self.generator = GenGRU(gen_path,batch_size=12)
     
         self.filters = []
 
@@ -24,10 +25,22 @@ class ACPmaker():
 
         self.mutator = None
 
+    def gen_seq_embedding_db(self, output_dir:Path, nbatches:int = 1000):
+
+        df = self.generator.generate_sequences(nbatches)
+        df = df[df['sequence'].str.len() > 0]
+
+        embedded_sequences = self.generator.get_embeddings(df)
+
+        df.to_csv(output_dir / 'DB.csv', index=False)
+        np.save(output_dir / 'embedds', embedded_sequences)
+
+
     def run_pipeline(self, nbatches:int, output_dir:Path, drop_cols:List=[], to_mutate:str=None):
 
         # generate sequences / initial dataframe [seq:label]
         df = self.generator.generate_sequences(nbatches)
+        df = df[df['sequence'].str.len() > 0]
         mut_df = None
 
         # run filtering 
