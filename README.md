@@ -1,10 +1,10 @@
 # ACP-designer
 
 <p align="center">
-  <img src="./graphics/sampled_mps.png" alt="DUCKTOOLS Logo" width="150" height="150">
+  <img src="./graphics/ACP_designer_logo.png" alt="ACP-designer Logo" width="150" height="150">
 </p>
 <p align="center">
-  <img src="./graphics/RoVa_logo.png" alt="DUCKTOOLS Logo" width="150" height="150">
+  <img src="./graphics/RoVa_logo.png" alt="RoVa Logo" width="150" height="150">
 </p>
 
 ## Overview
@@ -19,9 +19,17 @@ This toolbox enables rapid and cost-effective design of novel Mastoparan-like an
 
 1. **Generative model**
 
+![Generative Model Scheme](./graphics/GenModelRNN.png) 
+Small recurrent neural network trained on Anticaner peptide distribution and fine-tuned on Mastoparan peptides
+
 2. **Cytotoxicity filter**
 
+![Cytotoxicity Classifier Scheme](./graphics/clf_scheme.png) 
+Cytotoxicity classifier is based on protein embeddings from [ESM2](https://www.science.org/doi/10.1126/science.ade2574) model with random forest regressor predicting toxicity probability. In results user will find three toxicity labels: LOW, MEDIUM and HIGH.
+
 3. **additional filters**
+
+Generated sequences are compared to training data in charge and hycrophobic moment distributions. Generated sequences are labeled as OK or EDGE. This serves as additional check to ensure that sequences with EDGE label may face wet-lab synthesis issues due to overall physiochemical unfeasibility.
 
 ---
 
@@ -75,10 +83,14 @@ Customize runs with these parameters:
 |-----------------|----------------------------------------------------------|-------------------------------------|
 | `--id`   | run id to mark each run uniquely           | integer value, always required |
 | `--nbatch`        | controls amount of generated peptides               | `100` (default)                     |
-| `--device`      | device                              | `config_safe` (default)             |
-| `--mutate`          | sequnce to mutate                                  | string of amino acids |
+| `--device`      | device                              | `cpu` (default), `cuda`, `mps`             |
+| `--mutate`          | sequnce to mutate                                  | string of amino acids, i.e: `KKWLKA...` |
 
 ---
 
+## Success Story
+Here we present our achievement with ACP-designer
+
 ## Future Plans
 *Work in progress!*  
+
