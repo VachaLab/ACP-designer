@@ -14,7 +14,7 @@
   Developed by <a href="https://vacha.ceitec.cz">Robert Vacha group</a> • CEITEC
 </p>
 
-**ACP-designer** is a machine learning-based toolkit designed to accelerate and economize the development of novel peptide-based anticancer therapeutics.
+**ACP-designer** is a machine learning-based toolkit designed to accelerate the development of novel peptide-based anticancer therapeutics.
 
 The toolbox combines:
 
@@ -22,7 +22,7 @@ The toolbox combines:
 - **cytotoxicity prediction filter**  
 - **physicochemical feasibility checks**
 
-→ allowing fast generation and pre-filtering of promising Mastoparan-like anticancer peptide candidates.
+→ allowing fast generation and filtering of promising Mastoparan-like anticancer peptide candidates.
 
 ---
 
