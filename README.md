@@ -1,35 +1,65 @@
 # ACP-designer
 
 <p align="center">
-  <img src="./graphics/ACP_designer_logo.png" alt="ACP-designer Logo" width="150" height="150">
+  <img src="./graphics/ACP_designer_logo.png" alt="ACP-designer Logo" width="160"/>
+  <br/><br/>
+  <img src="./graphics/RoVa_logo.png" alt="RoVa Logo" width="160"/>
 </p>
+
 <p align="center">
-  <img src="./graphics/RoVa_logo.png" alt="RoVa Logo" width="150" height="150">
+  <strong>ML-powered toolbox for rapid design of Mastoparan-like anticancer peptides</strong>
 </p>
 
-## Overview
+<p align="center">
+  Developed by <a href="https://vacha.ceitec.cz">Robert Vacha group</a> • CEITEC
+</p>
 
-**ACP-designer** is a ML-based toolbox for design of peptide-based anticancer therapeutic agents. Developed by CEITEC - [Robert Vacha group](https://vacha.ceitec.cz)
+**ACP-designer** is a machine learning-based toolkit designed to accelerate and economize the development of novel peptide-based anticancer therapeutics.
 
-This toolbox enables rapid and cost-effective design of novel Mastoparan-like anticancer sequences. It contains simple generative model coupled with cytotoxicity filter to ensure seamless filtering for potential therapeutical candidates
+The toolbox combines:
+
+- lightweight **generative model**  
+- **cytotoxicity prediction filter**  
+- **physicochemical feasibility checks**
+
+→ allowing fast generation and pre-filtering of promising Mastoparan-like anticancer peptide candidates.
 
 ---
 
-## Features
+## ✨ Key Features
 
-1. **Generative model**
+### 1. Generative Model
 
-![Generative Model Scheme](./graphics/GenModelRNN.png) 
-Small recurrent neural network trained on Anticaner peptide distribution and fine-tuned on Mastoparan peptides
+Small character-level RNN trained on known anticancer peptides and fine-tuned specifically on Mastoparan sequences.
 
-2. **Cytotoxicity filter**
+<div align="center">
+  <img src="./graphics/GenModelRNN.png" alt="Generative Model Scheme" width="620"/>
+</div>
 
-![Cytotoxicity Classifier Scheme](./graphics/clf_scheme.png) 
-Cytotoxicity classifier is based on protein embeddings from [ESM2](https://www.science.org/doi/10.1126/science.ade2574) model with random forest regressor predicting toxicity probability. In results user will find three toxicity labels: LOW, MEDIUM and HIGH.
+### 2. Cytotoxicity Filter
 
-3. **additional filters**
+Classifier based on **ESM-2** protein language model embeddings + Random Forest regressor  
+→ predicts probability of cytotoxicity
 
-Generated sequences are compared to training data in charge and hycrophobic moment distributions. Generated sequences are labeled as OK or EDGE. This serves as additional check to ensure that sequences with EDGE label may face wet-lab synthesis issues due to overall physiochemical unfeasibility.
+**Output labels:**
+- **LOW**
+- **MEDIUM**
+- **HIGH**
+
+<div align="center">
+  <img src="./graphics/clf_scheme.png" alt="Cytotoxicity Classifier Scheme" width="620"/>
+</div>
+
+### 3. Additional Quality Filters
+
+Comparison of generated sequences against training set distribution in:
+
+- net charge
+- hydrophobic moment
+
+**Labels:**
+- **OK** – good agreement with known sequences
+- **EDGE** – significant deviation (may cause synthesis/solubility problems)
 
 ---
 
