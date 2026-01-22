@@ -119,7 +119,13 @@ Customize runs with these parameters:
 ---
 
 ## Success Story
-Here we present our achievement with ACP-designer
+We were able to design novel Mastoparan mutants with low hemolytic activity (RBC - red blood cell) and promising activity against human adenocarcinoma cells (A549):
+
+<div align="center">
+  <img src="./graphics/results.png" alt="wet-lab evaluation" width="620"/>
+</div>
+
+---
 
 ## Future Plans
 *Work in progress!*  

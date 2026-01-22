@@ -25,7 +25,7 @@ class ACPmaker():
 
         self.mutator = None
 
-    def gen_seq_embedding_db(self, output_dir:Path, nbatches:int = 1000):
+    def gen_seq_embedding_db(self, output_dir:Path, nbatches:int = 100):
 
         df = self.generator.generate_sequences(nbatches)
         df = df[df['sequence'].str.len() > 0]
