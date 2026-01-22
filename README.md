@@ -39,7 +39,7 @@ Small character-level RNN trained on known anticancer peptides and fine-tuned sp
 ### 2. Cytotoxicity Filter
 
 Classifier based on **ESM-2** protein language model embeddings + Random Forest regressor  
-→ predicts probability of cytotoxicity
+→ predicts probability of cytotoxicity. This probability is converted into three classes:
 
 **Output labels:**
 - **LOW**
@@ -90,7 +90,7 @@ Comparison of generated sequences against training set distribution in:
 ### Web Application
 No installation required! Access 'ACP-designer' full functionality via our web application:  
 👉 **[Web App](https://peptide-predictor.cloud.e-infra.cz)**
-Unfortunatelly only possible within Masaryk University intranet. Accessibility to the 'outside world' will be provided after security risk will be resolved
+Unfortunatelly only possible within Masaryk University intranet. Accessibility to the 'outside world' will be provided after security risks will be resolved
 
 ---
 
