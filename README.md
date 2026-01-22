@@ -86,6 +86,10 @@ Comparison of generated sequences against training set distribution in:
    ```bash
    pip install -r requirements.txt
    ```
+   or 
+   ```bash
+   pip3 install -r requirements.txt
+   ```
 
 ### Web Application
 No installation required! Access 'ACP-designer' full functionality via our web application:  
