@@ -80,7 +80,7 @@ class ACPmaker():
         seq_embedded = self.generator.get_embedding_single(base_sequence)
         seq_embedded = seq_embedded.reshape((1,400))
 
-        df = self.mutator.retrive_mutants(og_sequence=seq_embedded,n=3).reset_index()
+        df = self.mutator.retrive_mutants(og_sequence=seq_embedded,n=6).reset_index()
 
         return df
 
