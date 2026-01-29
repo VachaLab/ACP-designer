@@ -21,7 +21,7 @@ class CytotoxicityFilter(Filter):
         print('initializing the embedding model')
         self.embedder = Embedder(device)
 
-    def filter_sequences(self, df:pd.DataFrame):
+    def filter_sequences(self, df:pd.DataFrame) -> pd.DataFrame:
 
         """
         run cytotoxicity filtering

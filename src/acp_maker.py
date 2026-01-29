@@ -59,8 +59,11 @@ class ACPmaker():
         visualizations.probability_distribution(df['toxicity_prob'], output_dir)
         visualizations.latent_space_plot(self.generator.get_embeddings(df),df['toxicity_cat'], output_dir)
         df = df.drop(columns=drop_cols)
+
+        print(f'\n\n saving results to: {str(output_dir / 'results_all.csv')}')
         df.to_csv(output_dir / 'results_all.csv',index=False)
         if mut_df is not None:
+            print(f'\n\n saving mutants to: {str(output_dir / 'mutants.csv')}')
             mut_df.to_csv(output_dir / 'mutants.csv',index=False)
 
 

@@ -102,12 +102,12 @@ Unfortunatelly only possible within Masaryk University intranet. Accessibility t
 
 **Generation of new ACPs**
    ```bash
-   python run_cli.py --id 01 --nbatch 100
+   python run_pipeline.py --id 01 --nbatch 100
    ```
 
 **Generation of new ACPs + mutation of desired sequence**
    ```bash
-   python run_cli.py --id 01 --nbatch 100 --mutate INWKGIAAMAKKLL
+   python run_pipeline.py --id 01 --nbatch 100 --mutate INWKGIAAMAKKLL
    ```
 
 ### Command-Line Parameters
@@ -119,6 +119,23 @@ Customize runs with these parameters:
 | `--nbatch`        | controls amount of generated peptides               | `100` (default)                     |
 | `--device`      | device                              | `cpu` (default), `cuda`, `mps`             |
 | `--mutate`          | sequnce to mutate                                  | string of amino acids, i.e: `KKWLKA...` |
+
+---
+
+## Running Toxicity classifier only (Local Installation)
+
+   ```bash
+   python run_toxclf.py --input DB.csv
+   ```
+
+### Command-Line Parameters
+Customize runs with these parameters:
+
+| Parameter       | Description                                              | Options/Default                     |
+|-----------------|----------------------------------------------------------|-------------------------------------|
+| `--input`   | path to input CSV file          | required |
+| `--output`        | path to output CSV file               | `outputs/prediction.csv` (default)                     |
+| `--device`      | device                              | `cpu` (default), `cuda`, `mps`             |
 
 ---
 
